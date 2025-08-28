@@ -6,6 +6,7 @@ import { Movie } from '@/types/types';
 import Image from 'next/image';
 
 
+
 export default function SearchPage() {
   const [title, setTitle] = useState('');
   const [movie, setMovie] = useState<Movie | null>(null); //ha?
@@ -16,7 +17,7 @@ export default function SearchPage() {
       setMovie(data);
     } catch (err) {
       console.error(err);
-      alert("Film bulunamadı.");
+      alert("Could not find the movie.");
     }
   };
 
@@ -32,7 +33,7 @@ export default function SearchPage() {
           className="border px-4 py-2 rounded w-full"
         />
         <button onClick={handleSearch} className="bg-blue-500 text-white px-4 py-2 rounded">
-          Ara
+          Search
         </button>
       </div>
 

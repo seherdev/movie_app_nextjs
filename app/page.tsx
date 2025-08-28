@@ -1,6 +1,5 @@
 //genel page. app>page.tsx
 
-
 import "tailwindcss";
 import "autoprefixer";
 import SearchBar from "@/components/SearchBar";
@@ -10,8 +9,15 @@ export default function HomePage() {
   return (
     <main className="p-6 max-w-5xl mx-auto">
       <h1 className="text-3xl font-bold mb-4">🎬 Movie Explorer</h1>
-      <SearchBar />
-      <MovieList />
+      <SearchBar
+
+      
+      
+      />
+      <MovieList 
+      
+      
+      />
     </main>
   );
 }

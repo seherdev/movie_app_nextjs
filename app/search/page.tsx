@@ -2,10 +2,13 @@
 
 import { useState } from 'react';
 import { fetchMovie } from '@/lib/omdb';
+import { Movie } from '@/types/types';
+import Image from 'next/image';
+
 
 export default function SearchPage() {
   const [title, setTitle] = useState('');
-  const [movie, setMovie] = useState<''>('');
+  const [movie, setMovie] = useState<Movie | null>(null); //ha?
 
   const handleSearch = async () => {
     try {
@@ -36,8 +39,13 @@ export default function SearchPage() {
       {movie && (
         <div className="border p-4 rounded shadow">
           <h2 className="text-xl font-bold">{movie.Title} ({movie.Year})</h2>
-          <p>{movie.Plot}</p>
-          <img src={movie.Poster} alt={movie.Title} className="mt-4 w-64" />
+          <Image
+            src={movie.Poster}
+            alt={movie.Title}
+            width={256}
+            height={384}
+            className="mt-4 rounded"
+          />        
         </div>
       )}
     </div>

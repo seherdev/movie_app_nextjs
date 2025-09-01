@@ -1,5 +1,7 @@
 import MovieCard from "./MovieCard";
 import { Movie } from "@/src/types/types";
+import "tailwindcss"; //?
+import "autoprefixer";//?
 
 
 

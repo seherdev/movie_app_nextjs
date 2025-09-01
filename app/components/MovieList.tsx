@@ -1,20 +1,21 @@
 "use client";
 
+type Props = {
+  searchTerm: string;
+};
 
 import MovieCard from "../components/MovieCard";
 import "tailwindcss"; //?
 import "autoprefixer";//?
 
-
-
+//src\types
+//movie_app_nextjs\src\types
 
 import { useEffect, useState } from "react";
-import { Movie } from "../src/tpyes/types.ts";
-import { fetchMovies } from "../lib/omdb";
+import { Movie } from "@/src/types/types";
+import { fetchMovies } from "@/src/lib/omdb";
 
-type Props = {
-  searchTerm: string;
-};
+
 
 export default function MovieList({ searchTerm }: Props) {
   const [movies, setMovies] = useState<Movie[]>([]);

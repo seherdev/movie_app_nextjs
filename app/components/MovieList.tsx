@@ -4,7 +4,7 @@ type Props = {
   searchTerm: string;
 };
 
-import MovieCard from "../components/MovieCard";
+import MovieCard from "./MovieCard";
 import "tailwindcss"; //?
 import "autoprefixer";//?
 

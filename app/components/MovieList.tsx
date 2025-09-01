@@ -1,14 +1,16 @@
-import MovieCard from "./MovieCard";
+"use client";
+
+
+import MovieCard from "../components/MovieCard";
 import "tailwindcss"; //?
 import "autoprefixer";//?
 
 
 
-"use client";
 
 import { useEffect, useState } from "react";
-import { Movie } from "@/src/tpyes/types";
-import { fetchMovies } from "@/lib/omdb";
+import { Movie } from "../src/tpyes/types.ts";
+import { fetchMovies } from "../lib/omdb";
 
 type Props = {
   searchTerm: string;

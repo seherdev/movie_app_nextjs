@@ -2,6 +2,12 @@
 
 import { useState } from "react";
 
+
+type Props = {
+  onSearch: (query: string) => void;
+};
+
+
 export default function SearchBar() {
   const [query, setQuery] = useState("");
 
@@ -29,3 +35,4 @@ export default function SearchBar() {
     </form>
   );
 }
+

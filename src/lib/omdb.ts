@@ -5,11 +5,11 @@ import { Movie } from '@/src/types/types';
 const API_URL = "https://www.omdbapi.com/";
 
 
-const API_KEY = process.env.OMDB_API_KEY;
+const API_KEY = process.env._PUBLIC_OMDB_PI_KEY;
 const BASE_URL = 'https://www.omdbapi.com/';
 
-export async function fetchMovies(title: string): Promise<Movie> {
-  const res = await fetch(`${API_KEY}?t=${title}&{OMDB_API_KEY}=$O{OMDB_API_KEY}&plot=full`);
+export async function fetchMovies(searchTerm: string): Promise<Movie> {
+  const res = await fetch(`${API_KEY}?t=${searchTerm}&{API_KEY}=$O{{API_KEY}}&plot=full`);
   
   if (!res.ok) throw new Error('API request failed');
   
@@ -58,6 +58,8 @@ interface MovieDetails {
   Error?: string;
 }
 
+
+/* 
 export async function getMovieDetails(imdbID: string): Promise<MovieDetails> {
   const res = await fetch(`${BASE_URL}?apikey=${API_KEY}&i=${imdbID}&plot=full`);
   const data: MovieDetails = await res.json();
@@ -65,3 +67,4 @@ export async function getMovieDetails(imdbID: string): Promise<MovieDetails> {
   if (data.Response === 'False') throw new Error(data.Error);
   return data;
 }
+*/

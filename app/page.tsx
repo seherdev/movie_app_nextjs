@@ -4,9 +4,9 @@ import "tailwindcss";
 import "autoprefixer";
 
 
+import SearchBar from "../src/components/SearchBar";
+import MovieList from "../src/components/MovieList";
 
-import SearchBar from "../components/SearchBar";
-import MovieList from "../components/MovieList";
 
 export default function HomePage() {
   return (

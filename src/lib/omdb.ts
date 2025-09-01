@@ -1,10 +1,10 @@
 import { Movie } from '@/src/types/types';
 
-const API_KEY = process.env.NEXT_PUBLIC_OMDB_API_KEY;
+const API_KEY = process.env.OMDB_API_KEY;
 const BASE_URL = 'https://www.omdbapi.com/';
 
 export async function fetchMovie(title: string): Promise<Movie> {
-  const res = await fetch(`${BASE_URL}?t=${title}&apikey=${API_KEY}&plot=full`);
+  const res = await fetch(`${API_KEY}?t=${title}&{OMDB_API_KEY}=$O{OMDB_API_KEY}&plot=full`);
   
   if (!res.ok) throw new Error('API request failed');
   
@@ -19,4 +19,44 @@ export async function fetchMovie(title: string): Promise<Movie> {
     Genre: data.Genre,
     imdbID: data.imdbID,
   };
+}
+
+
+//http://www.omdbapi.com/?989c6da9=[989c6da9]&
+// IMDb ID ile detaylar
+interface MovieDetails {
+  Title: string;
+  Year: string;
+  Rated?: string;
+  Released?: string;
+  Runtime?: string;
+  Genre?: string;
+  Director?: string;
+  Writer?: string;
+  Actors?: string;
+  Plot?: string;
+  Language?: string;
+  Country?: string;
+  Awards?: string;
+  Poster?: string;
+  Ratings?: Array<{ Source: string; Value: string }>;
+  Metascore?: string;
+  imdbRating?: string;
+  imdbVotes?: string;
+  imdbID: string;
+  Type?: string;
+  DVD?: string;
+  BoxOffice?: string;
+  Production?: string;
+  Website?: string;
+  Response: string;
+  Error?: string;
+}
+
+export async function getMovieDetails(imdbID: string): Promise<MovieDetails> {
+  const res = await fetch(`${BASE_URL}?apikey=${API_KEY}&i=${imdbID}&plot=full`);
+  const data: MovieDetails = await res.json();
+
+  if (data.Response === 'False') throw new Error(data.Error);
+  return data;
 }

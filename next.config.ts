@@ -1,7 +1,9 @@
-import type { NextConfig } from "next";
+// next.config.ts
 
-const nextConfig: NextConfig = {
-  /* config options here */
+const nextConfig = {
+  env: {
+    OMDB_API_KEY: process.env.OMDB_API_KEY,
+  },
 };
 
 export default nextConfig;

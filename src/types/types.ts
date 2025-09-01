@@ -6,3 +6,5 @@ export type Movie = {
   Type?: string;
   Genre?: string;
 };
+
+

@@ -25,7 +25,7 @@ export default function HomePage() {
       </section>
 
       <section>
-        <MovieList />
+        <MovieList searchTerm="Inception" />
       </section>
     </main>
   );

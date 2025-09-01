@@ -1,40 +1,44 @@
 import MovieCard from "./MovieCard";
-import { Movie } from "@/src/types/types";
 import "tailwindcss"; //?
 import "autoprefixer";//?
 
 
 
-const dummyMovies: Movie[] = [
-  {
-    imdbID: "1",
-    Title: "Inception",
-    Year: "2010",
-    Poster: "/poster1.jpg",
-    Type: "movie"
-  },
-  {
-    imdbID: "2",
-    Title: "The Dark Knight",
-    Year: "2008",
-    Poster: "/poster2.jpg",
-    Type: "movie"
-  },
-  {
-    imdbID: "3",
-    Title: "Interstellar",
-    Year: "2014",
-    Poster: "/poster3.jpg",
-    Type: "movie"
-  }
+"use client";
 
-];
+import { useEffect, useState } from "react";
+import { Movie } from "@/src/tpyes/types";
+import { fetchMovies } from "@/lib/omdb";
 
+type Props = {
+  searchTerm: string;
+};
 
-export default function MovieList() {
+export default function MovieList({ searchTerm }: Props) {
+  const [movies, setMovies] = useState<Movie[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function loadMovies() {
+      setLoading(true);
+      const data = await fetchMovies(searchTerm);
+      if (data) setMovies(data);
+      setLoading(false);
+    }
+
+    if (searchTerm) {
+      loadMovies();
+    }
+  }, [searchTerm]);
+
+  if (loading) return <p className="text-center">Loading...</p>;
+
+  if (movies.length === 0)
+    return <p className="text-center text-gray-500">No results found.</p>;
+
   return (
     <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-      {dummyMovies.map((movie) => (
+      {movies.map((movie) => (
         <MovieCard key={movie.imdbID} movie={movie} />
       ))}
     </div>

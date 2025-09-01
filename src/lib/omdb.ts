@@ -1,9 +1,14 @@
+
+
 import { Movie } from '@/src/types/types';
+
+const API_URL = "https://www.omdbapi.com/";
+
 
 const API_KEY = process.env.OMDB_API_KEY;
 const BASE_URL = 'https://www.omdbapi.com/';
 
-export async function fetchMovie(title: string): Promise<Movie> {
+export async function fetchMovies(title: string): Promise<Movie> {
   const res = await fetch(`${API_KEY}?t=${title}&{OMDB_API_KEY}=$O{OMDB_API_KEY}&plot=full`);
   
   if (!res.ok) throw new Error('API request failed');

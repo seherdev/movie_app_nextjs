@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { fetchMovie } from '@/src/lib/omdb';
-import { Movie } from '@/types/types';
+import { Movie } from '@/src/types/types';
 import Image from 'next/image';
 
 

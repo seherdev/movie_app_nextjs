@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from 'next/image';
-import { Movie } from "@/types/types";
+import { Movie } from "@/src/types/types";
 
 type Props = {
   movie: Movie;

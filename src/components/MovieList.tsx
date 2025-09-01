@@ -1,5 +1,5 @@
 import MovieCard from "./MovieCard";
-import { Movie } from "@/types/types";
+import { Movie } from "@/src/types/types";
 
 
 

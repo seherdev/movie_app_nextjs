@@ -1,4 +1,5 @@
 // components/Footer.tsx
+//tryng smth
 export default function Footer() {
   return (
     <footer className="bg-white shadow mt-10">

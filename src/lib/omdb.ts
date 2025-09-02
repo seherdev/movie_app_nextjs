@@ -5,11 +5,11 @@ import { Movies } from '@/src/types/types';
 const API_URL = "https://www.omdbapi.com/";
 
 
-const API_KEY = process.env._PUBLIC_OMDB_API_KEY;
+const API_KEY = process.env._NEXT_PUBLIC_OMDB_API_KEY;
 const BASE_URL = 'https://www.omdbapi.com/';
 
 export async function fetchMovies(searchTerm: string): Promise<Movies[] | null> {
-  const res = await fetch(`${BASE_URL}?apikey=${API_KEY}&s=${searchTerm}&type=movie`);
+  const res = await fetch(`${BASE_URL}?apikey=${API_KEY}&s=${searchTerm}`);
 
 
   

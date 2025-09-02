@@ -1,9 +1,9 @@
 import Link from "next/link";
 import Image from 'next/image';
-import { Movie } from "@/src/types/types";
+import { Movies } from "@/src/types/types";
 
 type Props = {
-  movie: movie;
+  movie: Movies;
 };
                                                     //bu = üstteki (id:001)
 export default function MovieCard({ movie }: Props)  {

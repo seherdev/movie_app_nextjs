@@ -1,6 +1,6 @@
 
 
-import { Movie } from '@/src/types/types';
+import { Movies } from '@/src/types/types';
 
 const API_URL = "https://www.omdbapi.com/";
 
@@ -8,7 +8,7 @@ const API_URL = "https://www.omdbapi.com/";
 const API_KEY = process.env._PUBLIC_OMDB_API_KEY;
 const BASE_URL = 'https://www.omdbapi.com/';
 
-export async function fetchMovies(searchTerm: string): Promise<Movie[] | null> {
+export async function fetchMovies(searchTerm: string): Promise<Movies[] | null> {
   const res = await fetch(`${BASE_URL}?apikey=${API_KEY}&s=${searchTerm}&type=movie`);
 
 
@@ -19,13 +19,16 @@ export async function fetchMovies(searchTerm: string): Promise<Movie[] | null> {
 
   if (data.Response === "False") throw new Error(data.Error);
 
-  return {
-    Title: data.Title,
-    Year: data.Year,
-    Poster: data.Poster,
-    Genre: data.Genre, //database'de yoksa hata verir
-    imdbID: data.imdbID,
-  };
+  // OMDb returns an array of movies in data.Search
+  if (!data.Search) return null;
+
+  return data.Search.map((movie: any) => ({
+    Title: movie.Title,
+    Year: movie.Year,
+    Poster: movie.Poster,
+    Genre: movie.Genre, // may be undefined in search results
+    imdbID: movie.imdbID,
+  }));
 }
 
 

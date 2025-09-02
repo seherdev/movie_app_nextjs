@@ -1,4 +1,4 @@
-export type Movie = {
+export type data = {
   Title: string;
   Year: string;
   Poster: string;

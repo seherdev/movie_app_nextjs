@@ -8,8 +8,10 @@ const API_URL = "https://www.omdbapi.com/";
 const API_KEY = process.env._PUBLIC_OMDB_API_KEY;
 const BASE_URL = 'https://www.omdbapi.com/';
 
-export async function fetchMovies(searchTerm: string): Promise<Movie> {
-  const res = await fetch(`${API_KEY}?t=${searchTerm}&{API_KEY}=$O{{API_KEY}}&plot=full`);
+export async function fetchMovies(searchTerm: string): Promise<Movie[] | null> {
+  const res = await fetch(`${BASE_URL}?apikey=${API_KEY}&s=${searchTerm}&type=movie`);
+
+
   
   if (!res.ok) throw new Error('API request failed');
   
@@ -21,7 +23,7 @@ export async function fetchMovies(searchTerm: string): Promise<Movie> {
     Title: data.Title,
     Year: data.Year,
     Poster: data.Poster,
-    Genre: data.Genre,
+    Genre: data.Genre, //database'de yoksa hata verir
     imdbID: data.imdbID,
   };
 }

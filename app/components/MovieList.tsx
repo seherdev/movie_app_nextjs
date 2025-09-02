@@ -12,13 +12,13 @@ import "autoprefixer";//?
 //movie_app_nextjs\src\types
 
 import { useEffect, useState } from "react";
-import { Movie } from "@/src/types/types";
+import { data } from "@/src/types/types";
 import { fetchMovies } from "@/src/lib/omdb";
 
 
 
 export default function MovieList({ searchTerm }: Props) {
-  const [movies, setMovies] = useState<Movie[]>([]);
+  const [movies, setMovies] = useState<data[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {

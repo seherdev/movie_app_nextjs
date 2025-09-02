@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { Movie } from "@/src/types/types";
 
 type Props = {
-  movie: Movie;
+  movie: movie;
 };
                                                     //bu = üstteki (id:001)
 export default function MovieCard({ movie }: Props)  {

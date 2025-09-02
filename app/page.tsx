@@ -19,6 +19,9 @@ export default function HomePage() {
           Discover your next favorite movie.
         </p>
       </section>
+      <div className="bg-red-500 text-white p-10 rounded-xl">
+        Tailwind çalışıyor!
+      </div>
 
       <section className="mb-8">
         <SearchBar />

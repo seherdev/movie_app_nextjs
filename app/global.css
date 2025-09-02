@@ -4,11 +4,14 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-
+/*bunlar olmuyor sanki ama dursun...*/
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 
 /* =====================
-   🔤 Typography Reset
+Typography Reset
 ===================== */
 :root {
   --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;

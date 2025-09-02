@@ -64,7 +64,7 @@ interface MovieDetails {
 }
 
 
-/* 
+
 export async function getMovieDetails(imdbID: string): Promise<MovieDetails> {
   const res = await fetch(`${BASE_URL}?apikey=${API_KEY}&i=${imdbID}&plot=full`);
   const data: MovieDetails = await res.json();
@@ -72,4 +72,5 @@ export async function getMovieDetails(imdbID: string): Promise<MovieDetails> {
   if (data.Response === 'False') throw new Error(data.Error);
   return data;
 }
-*/
+
+export default getMovieDetails;

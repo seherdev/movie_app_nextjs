@@ -9,7 +9,7 @@ type Props = {
 export default function MovieCard({ movie }: Props)  {
   return (
     <div className="border rounded shadow p-3">
-      <Image
+      <img
     src={movie.Poster || "/no-image.png"}
     alt={movie.Title}
     width={400}                      // zorunlu

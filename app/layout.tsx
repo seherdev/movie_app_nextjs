@@ -5,6 +5,7 @@ import './global.css';
 import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
 import { ReactNode } from "react";
+import { Providers } from './app/providers';
 
 export const metadata = {
   title: "Movie Explorer",

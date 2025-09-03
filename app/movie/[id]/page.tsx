@@ -1,4 +1,4 @@
-import getMovieDetails from "@/src/lib/omdb";
+import getMovieDetails from "@/app/lib/omdb";
 
 export default async function MovieDetail({ params }: { params: { id: string } }) {
   // id'ye göre veri fetch edilecek

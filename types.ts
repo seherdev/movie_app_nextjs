@@ -2,7 +2,8 @@ export type Movies = {
   Title: string;
   Year: string;
   Poster: string;
-  imdbID?: string;
+
+  types?: string;
   Type?: string;
   Genre?: string;
 };

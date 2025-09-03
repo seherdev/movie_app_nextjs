@@ -13,7 +13,7 @@ import "autoprefixer";//?
 
 import { useEffect, useState } from "react";
 import { Movies } from "@/src/types/types";
-import { fetchMovies } from "@/src/lib/omdb";
+import { fetchMovies } from "@/app/lib/omdb";
 
 
 
